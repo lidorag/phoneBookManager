@@ -1,0 +1,648 @@
+/***********************************
+ * This work made by :
+ * Lidor ben shimol
+ * ID:203899018
+ * Ben ami Izrayev
+ * ID:040481640
+ ***********************************/
+/***********************************
+ * Global styling and typography
+ ***********************************/
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: hidden;
+}
+
+html {
+  font-size: 62.5%;
+  /*set the rem size fixed to px size - 1.6rem = 16px */
+}
+
+/* Defined by Flex for Responsive Primary Setting for each browser and mobile device */
+body {
+  min-height: 98vh;
+  min-width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  line-height: 1.6;
+  width: auto;
+  background-color: azure;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Global setting for tablets and iPads that will be responsive to 830PX size */
+@media (max-width: 830px) {
+  body {
+    max-width: 100vw;
+    max-height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .form{
+   width: 50vw;
+    height: 80vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  body h1 {
+    font-size: 2.2rem;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  body p {
+    font-size: 1.4rem;
+  }
+  div .pbs-name {
+    display: -ms-grid;
+    display: grid;
+    font-size: 1.2rem;
+  }
+  div .pbs-phone {
+    display: -ms-grid;
+    display: grid;
+    font-size: 1.2rem;
+  }
+  .pbs-add-entry-coulum {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: auto;
+  }
+  .bg-modal .modal-content p {
+    font-size: 1.5rem;
+  }
+  .modal-content form input {
+    font-size: 1rem;
+  }
+  .modal-content form textarea {
+    font-size: 1.2rem;
+  }
+  #searchBar {
+    font-size: 1rem;
+    padding: 1em 0.1em;
+    text-align: center;
+  }
+  .modal-content {
+    max-width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  #NewPersonModal {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    max-width: 100vw;
+    max-height: 100vh;
+    margin-top: -4.5rem;
+    font-size: 0.6;
+    padding: 0;
+  }
+  #NewPersonModal #newPersonSubmitBtn {
+    padding: 0.5em;
+  }
+  #NewPersonModal #newPersonCancleBtn {
+    padding: 0.5em;
+  }
+  #NewPersonModal .btn {
+    margin-top: -2rem;
+  }
+  #NewPersonModal label,
+  #NewPersonModal input {
+    font-size: xx-small;
+  }
+  #NewPersonModal h1 {
+    font-size: 1rem;
+    padding-bottom: -2em;
+  }
+}
+
+/* Global setting for phones that will have a responsive size of 584PX */
+@media (max-width: 584px) {
+  body {
+    max-width: 100%;
+  }
+  body h1 {
+    font-size: 2.2rem;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  body p {
+    font-size: 1.4rem;
+  }
+  div .pbs-name {
+    display: -ms-grid;
+    display: grid;
+    font-size: 1.2rem;
+  }
+  div .pbs-phone {
+    display: -ms-grid;
+    display: grid;
+    font-size: 1.2rem;
+  }
+  .pbs-add-entry-coulum {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: auto;
+  }
+  .bg-modal .modal-content p {
+    font-size: 1.8rem;
+  }
+  .modal-content form input {
+    font-size: 1.2rem;
+  }
+  .modal-content form textarea {
+    font-size: 1.4rem;
+  }
+  #searchBar {
+    font-size: 1rem;
+    padding: 1em 0.1em;
+    text-align: center;
+  }
+  .modal-content {
+    max-width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+
+h1 {
+  font-family: sans-serif;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 2.8rem;
+}
+
+
+
+/* Setting a main row of the main screen that
+  displays the full name and also phone and icons 
+  of deleting and editing the table */
+.pbs-table-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  font-size: 2rem;
+  margin-top: 35px;
+  width: 80%;
+  margin: auto;
+}
+
+.pbs-table-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.pbs-table-column {
+  margin: 2px;
+  padding: 0.5em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*Manage title and column size */
+.pbs-name {
+  -ms-flex-preferred-size: 20%;
+  flex-basis: 20%;
+}
+
+.pbs-phone {
+  -webkit-box-flex: 2;
+  -ms-flex-positive: 2;
+  flex-grow: 2;
+  -ms-flex-preferred-size: 10%;
+  flex-basis: 10%;
+}
+
+/*Manage header */
+.pbs-header {
+  background-color: #79e8fc;
+  font-weight: bolder;
+}
+
+/* Setting the Flex Size 
+ Base by 10% of the Delete, Edit, Add, and Vote Effects 
+ buttons belong to the external JS */
+.pbs-edit,
+.pbs-delete,
+.pbs-add-entry-coulum {
+  -ms-flex-preferred-size: 10%;
+  flex-basis: 10%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.form{
+  width: auto;
+  height: auto;
+  }
+
+#NewPersonModal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: stretch;
+	justify-content: center;
+  max-width: 100%;
+  max-height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 50vw;
+  padding: 0.5em;
+  border-radius: 0.5rem;
+  /* make sure the modal popup in front of all*/
+  z-index: 99;
+  top: 5rem;
+  position: absolute;
+  /* center the new person modal*/
+  /* 50% of the box minus 250px (half of the width)*/
+  margin-left: calc(35% - 5.5rem);
+  background-color: white;
+  font-size: medium;
+  flex-wrap: nowrap;
+  align-content: stretch;
+}
+
+/* Setting the width and padding and merging of the 
+ event clicking window to see the details */
+#NewPersonModal input,
+#NewPersonModal textarea {
+  margin-bottom: 15px;
+  padding: 1px;
+  border: 3px;
+  width: 100%;
+}
+
+/* Red color if no mandatory detail is entered */
+.input-err {
+  background-color: red;
+}
+
+/* 100% browning below */
+#backdrop {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 50;
+  top: 0;
+  left: 0;
+}
+
+/* Internal definition of a separate button */
+#newPersonSubmitBtn {
+  background-color: #2f5f97;
+  font-size: 1.2rem;
+}
+
+/* Internal definition of a separate button */
+#newPersonCancleBtn {
+  background-color: red;
+  font-size: 1.2rem;
+}
+
+/* External setting on each button and also to be responsive by flex */
+.btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 1.8rem;
+}
+
+/* Internal setting of the buttons together*/
+button {
+  padding: 1em;
+  border-radius: 0.5rem;
+  border: none;
+  float: right;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+/* Effect of pressing buttons */
+button:hover {
+  padding: 1.1em;
+}
+
+/*Event Hiding Window Add Phones etc. Details and also Responsive Flex by 100% */
+.disable-modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  visibility: hidden;
+}
+
+/* Event display window Add phones etc details */
+.enable-modal {
+  visibility: visible;
+}
+
+i {
+  /*tells the browser ignore any click on the icon and get anywhere in that cell 
+     not the icon itself  */
+  pointer-events: none;
+}
+
+/*Global Department of Event Adding new details to the phone book
+  Width and length by 100% for responsiveness*/
+.bg-modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: none;
+}
+
+/* global UI for new input event master for especially section  */
+.modal-content {
+  min-width: 30%;
+  background-color: white;
+  border-radius: 7%;
+  display: block;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 1em;
+  font-size: large;
+  border-width: 0px;
+  position: relative;
+}
+
+/* Specific font size for this section  */
+.modal-content p {
+  width: auto;
+  text-align: center;
+  padding-top: 1em;
+  font-size: 4rem;
+}
+
+/* icon close event */
+.modal-content .close {
+  position: absolute;
+  top: 0;
+  right: 30px;
+  font-size: 3rem;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+
+/* global UI for new input event final position */
+.modal-labels {
+  margin-top: 5%;
+  margin-left: 2%;
+}
+
+/* UI for input Details name,addres..*/
+.modal-labels input {
+  width: 100%;
+  display: block;
+  margin: 5px auto;
+  border: none;
+  border-width: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: white;
+  outline: none;
+  font-size: 1.8rem;
+}
+
+/* for disabled input*/
+.modal-labels textarea {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 5px auto;
+  border: none;
+  border-width: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: white;
+  outline: none;
+  font-size: 1.8rem;
+}
+
+/*main container */
+.container {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+/*For searching for people
+ there are people in the phone book  */
+.form-group input {
+  width: 25%;
+  font-size: 1.8rem;
+}
+
+/*Added grid because I wanted it to
+  always be down and also for tablets like iPad and 
+ it would be responsive and also sticky down*/
+footer {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  place-content: center;
+  margin-top: auto;
+  min-height: 5vh;
+  background-color: red;
+  color: white;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+
+
+.form {
+	padding: 10px 20px;	
+}
+
+.form-control {
+	margin-bottom: 5px;
+	padding-bottom: 10px;
+	position: relative;
+}
+
+.form-control label {
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+.form-control input {
+	border: 2px solid #f0f0f0;
+	border-radius: 4px;
+	display: block;
+	font-family: inherit;
+	font-size: 14px;
+	padding: 10px;
+	width: 100%;
+}
+
+.form-control input:focus {
+	outline: 0;
+	border-color: #777;
+}
+
+.form-control.success input {
+  border-style: solid; 
+	border-color: #2ecc71;
+}
+
+.form-control.error input {
+  border-style: solid;
+	border-color: #e74c3c;
+}
+
+.form-control i {
+	visibility: hidden;
+	position: absolute;
+	top: 51px;
+	right: 10px;
+}
+
+.form-control.success i.fa-check-circle {
+	color: #2ecc71;
+	visibility: visible;
+}
+
+.form-control.error i.fa-exclamation-circle {
+	color: #e74c3c;
+	visibility: visible;
+}
+
+.form-control small {
+	color: #e74c3c;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	visibility: hidden;
+}
+
+.form-control.error small {
+	visibility: visible;
+}
+
+.pbs-table-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.5em;
+  
+}
+
+
+
+/* Tooltip text */
+.tooltiptext-disable {
+  visibility: hidden;
+  
+  background-color: #555555bd;
+  color: #fff;
+  text-align: center;
+  padding: 2px;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+  display: block;
+}
+
+.tooltiptext-enable {
+  background-color: #555555bd;
+  color: #fff;
+  text-align: center;
+  padding: 2px;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+  display: block;
+  visibility: visible;
+}
+/* Show the tooltip text when you mouse over the tooltip container *//*
+.pbs-name:hover .tooltiptext {
+  visibility: visible;
+}*/
